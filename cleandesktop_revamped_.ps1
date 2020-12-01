@@ -67,6 +67,8 @@ $CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_TEXTBOX)
 
 # add two buttons to the main page, one that moves the files and one that lets you choose the location
 # of the folder where to copy the files
+
+
 # add extensions tab to the gui
 $CLEANDESKTOP_EXTENSIONS_PAGE        = New-Object System.Windows.Forms.TabPage
 $CLEANDESKTOP_EXTENSIONS_PAGE.DataBindings.DefaultDataSourceUpdateMode = 0
