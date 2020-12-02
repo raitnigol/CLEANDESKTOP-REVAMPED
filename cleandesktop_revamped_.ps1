@@ -55,18 +55,47 @@ $CLEANDESKTOP_MAIN_PAGE.UseVisualStyleBackColor = $true
 $CLEANDESKTOP_MAIN_PAGE.Text     = "Main Page"
 $TabControl.Controls.Add($CLEANDESKTOP_MAIN_PAGE)
 
+
+# add two buttons to the main page, one that moves the files and one that lets you choose the location
+# of the folder where to copy the files
+# first of all create a table layout panel so we can center the buttons to the center of the screen
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL = New-Object System.Windows.Forms.TableLayoutPanel
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.AutoSize = $true
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.AutoSizeMode = "GrowAndShrink"
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.RowCount = 2
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.ColumnCount = 2
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.BackColor = "Gray"
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.Anchor = "none"
+$CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL)
+
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON = New-Object System.Windows.Forms.Button
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.AutoSize = $true
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Text    = "Select Folder"
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Width   = 20
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Height  = 20
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Anchor = "left,right,bottom"
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Font = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.TextAlign = "BottomCenter"
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON)
+
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON = New-Object System.Windows.Forms.Button
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.AutoSize = $true
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Text = "Move Files"
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Width = 20
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Height = 20
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Anchor = 'left,right,bottom'
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Font = New-Object System.Drawing.Font("Microsoft Sans Serif",10)
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.TextAlign = "BottomCenter"
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON)
+
 # add a label to the main page where you can choose the folder where to move the files
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX = New-Object System.Windows.Forms.TextBox
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.AutoSize = $true
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.ReadOnly = $true
-$CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Anchor = "none"
+$CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Anchor = "left,right,top"
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.TextAlign = "Left"
-$CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Location = New-Object System.Drawing.Point(-50,0)
-$CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Size   = New-Object System.Drawing.Size(300,10)
-$CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_TEXTBOX)
-
-# add two buttons to the main page, one that moves the files and one that lets you choose the location
-# of the folder where to copy the files
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_TEXTBOX)
+$CLEANDESKTOP_MAIN_PAGE_FLOW_LAYOUT_PANEL.SetColumnSpan($CLEANDESKTOP_MAIN_PAGE_TEXTBOX, 2)
 
 
 # add extensions tab to the gui
