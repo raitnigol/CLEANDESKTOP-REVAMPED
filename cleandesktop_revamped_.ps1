@@ -55,6 +55,15 @@ $CLEANDESKTOP_MAIN_PAGE.UseVisualStyleBackColor = $true
 $CLEANDESKTOP_MAIN_PAGE.Text     = "Main Page"
 $TabControl.Controls.Add($CLEANDESKTOP_MAIN_PAGE)
 
+# add a label with my github to the main tab of the gui
+$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL = New-Object System.Windows.Forms.Label
+$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Text = "github.com/raitnigol"
+$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.AutoSize = $true
+$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Width = 25
+$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Height = 10
+$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Anchor = "right,bottom"
+$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Font = "Verdana, 10"
+$CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL)
 
 # add two buttons to the main page, one that moves the files and one that lets you choose the location
 # of the folder where to copy the files
@@ -68,6 +77,7 @@ $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.BackColor = "White"
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Anchor = "none"
 $CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL)
 
+# button for selecting the desktop path
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON = New-Object System.Windows.Forms.Button
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.AutoSize = $true
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Text    = "Select Folder"
@@ -78,6 +88,11 @@ $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Font = New-Object System.Drawing.Font('Mic
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.TextAlign = "BottomCenter"
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON)
 
+# add controls for the button
+$CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Add_Click({Show-TextBox-DesktopLocation})
+
+
+# main button for executing the script to move the files to the selected folder
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON = New-Object System.Windows.Forms.Button
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.AutoSize = $true
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Text = "Move Files"
@@ -87,6 +102,9 @@ $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Anchor = 'left,right,bottom'
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Font = New-Object System.Drawing.Font("Microsoft Sans Serif",10)
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.TextAlign = "BottomCenter"
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON)
+
+# add controls for the button
+
 
 # add a label to the main page where you can choose the folder where to move the files
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX = New-Object System.Windows.Forms.TextBox
@@ -192,7 +210,6 @@ $CLEAR_EXTENSIONS_BUTTON.Font = New-Object System.Drawing.Font('Microsoft Sans S
 $CLEAR_EXTENSIONS_BUTTON.TextAlign = "BottomCenter"  
 $CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CLEAR_EXTENSIONS_BUTTON)
 
-
 # add logic to the button
 $CLEAR_EXTENSIONS_BUTTON.Add_Click({CleanExtensions})
 
@@ -252,7 +269,19 @@ function List-DesktopFiles {
 List-DesktopFiles
 
 
-function Show-TextBox-DesktopLocation { }
+function Show-TextBox-DesktopLocation {
+    # create filebrowser object and initial directory should be desktop, 
+    $FileBrowser = New-Object System.Windows.Forms.FolderBrowserDialog -Property ${
+        InitialDirectory = [Environment]::GetFolderPath('Desktop')
+    }
+
+    $OpenDialog = $FileBrowser.ShowDialog()
+    if ($OpenDialog -eq "OK") {
+        $DestinationFolder = $FileBrowser.SelectedPath
+        # set the textbox text to the selected path
+        $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Text = $DestinationFolder
+    }
+}
 
 
 # add controls
