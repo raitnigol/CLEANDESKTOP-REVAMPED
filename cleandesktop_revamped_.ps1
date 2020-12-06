@@ -1,4 +1,5 @@
-﻿<# This form was created using POSHGUI.com  a free online gui designer for PowerShell
+﻿
+<# This form was created using POSHGUI.com  a free online gui designer for PowerShell
 .NAME
     CLEANDESKTOP REVAMPED
 #>
@@ -104,6 +105,7 @@ $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.TextAlign = "BottomCenter"
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON)
 
 # add controls for the button
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Add_Click({Move-DesktopFiles})
 
 
 # add a label to the main page where you can choose the folder where to move the files
@@ -281,6 +283,19 @@ function Show-TextBox-DesktopLocation {
         # set the textbox text to the selected path
         $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Text = $DestinationFolder
     }
+}
+
+function Move-DesktopFiles {
+    # function to move the files to the selected folder
+    $DesktopLocation = Get-DesktopLocation
+    $DestinationPath = $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Text
+    Write-Host "moving to $DestinationPath"
+    Get-ChildItem -Path $DesktopLocation -File |
+    ForEach-Object {
+        # get full name of the files (path+filename)
+        Move-Item -Path $_.FullName -Destination $DestinationPath
+    }
+
 }
 
 
