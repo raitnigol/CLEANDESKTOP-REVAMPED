@@ -138,6 +138,7 @@ $TabControl.Controls.Add($CLEANDESKTOP_DESKTOP_FILES)
 # add all files on the desktop there, and make them selectable
 # for individual removal or moving
 $DESKTOP_FILES_DATAGRIDVIEW          = New-Object System.Windows.Forms.DataGridView
+$DESKTOP_FILES_DATAGRIDVIEW.Dock = "Fill"
 $DESKTOP_FILES_DATAGRIDVIEW.Anchor   = "top, bottom, left, right"
 $DESKTOP_FILES_DATAGRIDVIEW.AutoSizeColumnsMode = "Fill"
 $DESKTOP_FILES_DATAGRIDVIEW.TabIndex = 0
@@ -155,9 +156,9 @@ $DESKTOP_FILES_DATAGRIDVIEW.AllowUser
 $DESKTOP_FILES_DATAGRIDVIEW.ColumnCount = 1
 $DESKTOP_FILES_DATAGRIDVIEW.Columns[0].Name = "File name"
 $DESKTOP_FILES_DATAGRIDVIEW.Columns[0].Width = 200
+$DESKTOP_FILES_DATAGRIDVIEW.AutoSizeRowsMode = "AllCells"
+
 $CLEANDESKTOP_DESKTOP_FILES.Controls.Add($DESKTOP_FILES_DATAGRIDVIEW)
-
-
 # set up tabs for extensions tab
 $CHECKBOX_PNG                    = New-Object System.Windows.Forms.CheckBox
 $CHECKBOX_JPG                    = New-Object System.Windows.Forms.CheckBox
@@ -265,7 +266,7 @@ function List-DesktopFiles {
     # list the desktop files and show them in the desktop files tab
     Show-DesktopFiles | 
     ForEach-Object {
-        [void]$DESKTOP_FILES_DATAGRIDVIEW.Rows.Add($_) 
+        [void]$DESKTOP_FILES_DATAGRIDVIEW.Rows.Add($_)
      }
 }
 List-DesktopFiles
@@ -292,7 +293,7 @@ function Move-DesktopFiles {
     Write-Host "moving to $DestinationPath"
     Get-ChildItem -Path $DesktopLocation -File |
     ForEach-Object {
-        # get full name of the files (path+filename)
+        # get full name of the files (path+filename) and then move the files
         Move-Item -Path $_.FullName -Destination $DestinationPath
     }
 
