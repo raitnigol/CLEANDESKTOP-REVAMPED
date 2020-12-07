@@ -174,11 +174,45 @@ $DESKTOP_FILES_DATAGRIDVIEW.AutoSizeRowsMode = "AllCells"
 $CLEANDESKTOP_DESKTOP_FILES.Controls.Add($DESKTOP_FILES_DATAGRIDVIEW)
 
 
-# set up tabs for extensions tab
-$CHECKBOX_PNG                    = New-Object System.Windows.Forms.CheckBox
-$CHECKBOX_JPG                    = New-Object System.Windows.Forms.CheckBox
-$CHECKBOX_JPEG                   = New-Object System.Windows.Forms.CheckBox
-
+# set up checkboxes for extensions tab
+$CHECKBOX_PNG                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_JPG                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_JPEG                  = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_PSD                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_MP4                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_HTML                  = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_CSS                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_JS                    = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_PDF                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_AI                    = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_ID                    = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_PHP                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_TIFF                  = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_SOL                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_CS                    = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_MD                    = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_HPP                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_JSON                  = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_CPP                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_GO                    = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_SVG                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_GIF                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_EPS                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_DOC                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_XLS                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_PPT                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_OGG                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_WAV                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_MP3                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_MID                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_ZIP                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_AVI                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_FLV                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_WMV                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_MOV                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_MPG                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_XML                   = New-Object System.Windows.Forms.CheckBox
+$CHECKBOX_FLA                   = New-Object System.Windows.Forms.CheckBox
 
 # CHECKBOX_PNG
 $CHECKBOX_PNG.UseVisualStyleBackColor = $True
@@ -189,11 +223,11 @@ $CHECKBOX_PNG.Size               = $System_Drawing_Size
 $CHECKBOX_PNG.TabIndex           = 1
 $CHECKBOX_PNG.Text               = ".png"
 $System_Drawing_Point            = New-Object System.Drawing.Point
-$System_Drawing_Point.X          = 25
-$System_Drawing_Point.Y          = 50
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 10
 $CHECKBOX_PNG.Location           = $System_Drawing_Point
 $CHECKBOX_PNG.DataBindings.DefaultDataSourceUpdateMode = 0
-$CHECKBOX_PNG.Name               = "checkBox2"
+$CHECKBOX_PNG.Name               = "checkBox1"
 
 $CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_PNG)
 
@@ -210,8 +244,8 @@ $CHECKBOX_JPG.Size               = $System_Drawing_Size
 $CHECKBOX_JPG.TabIndex           = 1
 $CHECKBOX_JPG.Text               = ".jpg"
 $System_Drawing_Point            = New-Object System.Drawing.Point
-$System_Drawing_Point.X          = 25
-$System_Drawing_Point.Y          = 25
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 30
 $CHECKBOX_JPG.Location           = $System_Drawing_Point
 $CHECKBOX_JPG.DataBindings.DefaultDataSourceUpdateMode = 0
 $CHECKBOX_JPG.Name               = "checkBox2"
@@ -219,6 +253,484 @@ $CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_JPG)
 
 # add the checkbox to the array that we created earlier
 $Script:GUIFormObjectList += $CHECKBOX_JPG
+
+
+# CHECKBOX_JPEG
+$CHECKBOX_JPEG.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_JPEG.Size               = $System_Drawing_Size
+$CHECKBOX_JPEG.TabIndex           = 1
+$CHECKBOX_JPEG.Text               = ".jpeg"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 50
+$CHECKBOX_JPEG.Location           = $System_Drawing_Point
+$CHECKBOX_JPEG.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_JPEG.Name               = "checkBox3"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_JPEG)
+
+
+# CHECKBOX_PSD
+$CHECKBOX_PSD.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_PSD.Size               = $System_Drawing_Size
+$CHECKBOX_PSD.TabIndex           = 1
+$CHECKBOX_PSD.Text               = ".psd"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 70
+$CHECKBOX_PSD.Location           = $System_Drawing_Point
+$CHECKBOX_PSD.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_PSD.Name               = "checkBox4"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_PSD)
+
+
+# CHECKBOX_MP4
+$CHECKBOX_MP4.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_MP4.Size               = $System_Drawing_Size
+$CHECKBOX_MP4.TabIndex           = 1
+$CHECKBOX_MP4.Text               = ".mp4"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 90
+$CHECKBOX_MP4.Location           = $System_Drawing_Point
+$CHECKBOX_MP4.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_MP4.Name               = "checkBox5"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_MP4)
+
+
+# CHECKBOX_HTML
+$CHECKBOX_HTML.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_HTML.Size               = $System_Drawing_Size
+$CHECKBOX_HTML.TabIndex           = 1
+$CHECKBOX_HTML.Text               = ".html"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 110
+$CHECKBOX_HTML.Location           = $System_Drawing_Point
+$CHECKBOX_HTML.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_HTML.Name               = "checkBox6"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_HTML)
+
+
+# CHECKBOX_CSS
+$CHECKBOX_CSS.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_CSS.Size               = $System_Drawing_Size
+$CHECKBOX_CSS.TabIndex           = 1
+$CHECKBOX_CSS.Text               = ".css"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 130
+$CHECKBOX_CSS.Location           = $System_Drawing_Point
+$CHECKBOX_CSS.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_CSS.Name               = "checkBox7"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_CSS)
+
+
+# CHECKBOX_JS
+$CHECKBOX_JS.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_JS.Size               = $System_Drawing_Size
+$CHECKBOX_JS.TabIndex           = 1
+$CHECKBOX_JS.Text               = ".js"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 150
+$CHECKBOX_JS.Location           = $System_Drawing_Point
+$CHECKBOX_JS.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_JS.Name               = "checkBox8"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_JS)
+
+
+# CHECKBOX_PDF
+$CHECKBOX_PDF.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_PDF.Size               = $System_Drawing_Size
+$CHECKBOX_PDF.TabIndex           = 1
+$CHECKBOX_PDF.Text               = ".pdf"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 170
+$CHECKBOX_PDF.Location           = $System_Drawing_Point
+$CHECKBOX_PDF.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_PDF.Name               = "checkBox9"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_PDF)
+
+
+# CHECKBOX_AI
+$CHECKBOX_AI.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_AI.Size               = $System_Drawing_Size
+$CHECKBOX_AI.TabIndex           = 1
+$CHECKBOX_AI.Text               = ".ai"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 190
+$CHECKBOX_AI.Location           = $System_Drawing_Point
+$CHECKBOX_AI.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_AI.Name               = "checkBox10"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_AI)
+
+
+# CHECKBOX_ID
+$CHECKBOX_ID.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_ID.Size               = $System_Drawing_Size
+$CHECKBOX_ID.TabIndex           = 1
+$CHECKBOX_ID.Text               = ".id"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 210
+$CHECKBOX_ID.Location           = $System_Drawing_Point
+$CHECKBOX_ID.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_ID.Name               = "checkBox11"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_ID)
+
+
+# CHECKBOX_PHP
+$CHECKBOX_PHP.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_PHP.Size               = $System_Drawing_Size
+$CHECKBOX_PHP.TabIndex           = 1
+$CHECKBOX_PHP.Text               = ".php"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 230
+$CHECKBOX_PHP.Location           = $System_Drawing_Point
+$CHECKBOX_PHP.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_PHP.Name               = "checkBox12"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_PHP)
+
+
+# CHECKBOX_TIFF
+$CHECKBOX_TIFF.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_TIFF.Size               = $System_Drawing_Size
+$CHECKBOX_TIFF.TabIndex           = 1
+$CHECKBOX_TIFF.Text               = ".tiff"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 250
+$CHECKBOX_TIFF.Location           = $System_Drawing_Point
+$CHECKBOX_TIFF.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_TIFF.Name               = "checkBox13"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_TIFF)
+
+
+# CHECKBOX_GIF
+$CHECKBOX_GIF.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_GIF.Size               = $System_Drawing_Size
+$CHECKBOX_GIF.TabIndex           = 1
+$CHECKBOX_GIF.Text               = ".gif"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 270
+$CHECKBOX_GIF.Location           = $System_Drawing_Point
+$CHECKBOX_GIF.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_GIF.Name               = "checkBox13"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_GIF)
+
+
+# CHECKBOX_EPS
+$CHECKBOX_EPS.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_EPS.Size               = $System_Drawing_Size
+$CHECKBOX_EPS.TabIndex           = 1
+$CHECKBOX_EPS.Text               = ".eps"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 290
+$CHECKBOX_EPS.Location           = $System_Drawing_Point
+$CHECKBOX_EPS.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_EPS.Name               = "checkBox15"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_EPS)
+
+
+# CHECKBOX_DOC
+$CHECKBOX_DOC.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_DOC.Size               = $System_Drawing_Size
+$CHECKBOX_DOC.TabIndex           = 1
+$CHECKBOX_DOC.Text               = ".doc"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 310
+$CHECKBOX_DOC.Location           = $System_Drawing_Point
+$CHECKBOX_DOC.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_DOC.Name               = "checkBox16"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_DOC)
+
+
+# CHECKBOX_XLS
+$CHECKBOX_XLS.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_XLS.Size               = $System_Drawing_Size
+$CHECKBOX_XLS.TabIndex           = 1
+$CHECKBOX_XLS.Text               = ".xls"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 330
+$CHECKBOX_XLS.Location           = $System_Drawing_Point
+$CHECKBOX_XLS.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_XLS.Name               = "checkBox17"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_XLS)
+
+
+# CHECKBOX_PPT
+$CHECKBOX_PPT.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_PPT.Size               = $System_Drawing_Size
+$CHECKBOX_PPT.TabIndex           = 1
+$CHECKBOX_PPT.Text               = ".ppt"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 350
+$CHECKBOX_PPT.Location           = $System_Drawing_Point
+$CHECKBOX_PPT.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_PPT.Name               = "checkBox18"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_PPT)
+
+
+# CHECKBOX_OGG
+$CHECKBOX_OGG.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_OGG.Size               = $System_Drawing_Size
+$CHECKBOX_OGG.TabIndex           = 1
+$CHECKBOX_OGG.Text               = ".ogg"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 370
+$CHECKBOX_OGG.Location           = $System_Drawing_Point
+$CHECKBOX_OGG.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_OGG.Name               = "checkBox19"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_OGG)
+
+
+# CHECKBOX_WAV
+$CHECKBOX_WAV.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_WAV.Size               = $System_Drawing_Size
+$CHECKBOX_WAV.TabIndex           = 1
+$CHECKBOX_WAV.Text               = ".wav"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 390
+$CHECKBOX_WAV.Location           = $System_Drawing_Point
+$CHECKBOX_WAV.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_WAV.Name               = "checkBox20"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_WAV)
+
+
+# CHECKBOX_MP3
+$CHECKBOX_MP3.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_MP3.Size               = $System_Drawing_Size
+$CHECKBOX_MP3.TabIndex           = 1
+$CHECKBOX_MP3.Text               = ".mp3"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 410
+$CHECKBOX_MP3.Location           = $System_Drawing_Point
+$CHECKBOX_MP3.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_MP3.Name               = "checkBox21"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_MP3)
+
+
+# CHECKBOX_MID
+$CHECKBOX_MID.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_MID.Size               = $System_Drawing_Size
+$CHECKBOX_MID.TabIndex           = 1
+$CHECKBOX_MID.Text               = ".mid"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 430
+$CHECKBOX_MID.Location           = $System_Drawing_Point
+$CHECKBOX_MID.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_MID.Name               = "checkBox22"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_MID)
+
+
+# CHECKBOX_ZIP
+$CHECKBOX_ZIP.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_ZIP.Size               = $System_Drawing_Size
+$CHECKBOX_ZIP.TabIndex           = 1
+$CHECKBOX_ZIP.Text               = ".zip"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 450
+$CHECKBOX_ZIP.Location           = $System_Drawing_Point
+$CHECKBOX_ZIP.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_ZIP.Name               = "checkBox23"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_ZIP)
+
+
+# CHECKBOX_AVI
+$CHECKBOX_AVI.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_AVI.Size               = $System_Drawing_Size
+$CHECKBOX_AVI.TabIndex           = 1
+$CHECKBOX_AVI.Text               = ".avi"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 470
+$CHECKBOX_AVI.Location           = $System_Drawing_Point
+$CHECKBOX_AVI.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_AVI.Name               = "checkBox24"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_AVI)
+
+
+# CHECKBOX_FLV
+$CHECKBOX_FLV.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_FLV.Size               = $System_Drawing_Size
+$CHECKBOX_FLV.TabIndex           = 1
+$CHECKBOX_FLV.Text               = ".flv"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 490
+$CHECKBOX_FLV.Location           = $System_Drawing_Point
+$CHECKBOX_FLV.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_FLV.Name               = "checkBox25"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_FLV)
+
+
+# CHECKBOX_WMV
+$CHECKBOX_WMV.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_WMV.Size               = $System_Drawing_Size
+$CHECKBOX_WMV.TabIndex           = 1
+$CHECKBOX_WMV.Text               = ".wmv"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 510
+$CHECKBOX_WMV.Location           = $System_Drawing_Point
+$CHECKBOX_WMV.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_WMV.Name               = "checkBox26"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_WMV)
+
+
+# CHECKBOX_MOV
+$CHECKBOX_MOV.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_MOV.Size               = $System_Drawing_Size
+$CHECKBOX_MOV.TabIndex           = 1
+$CHECKBOX_MOV.Text               = ".mov"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 530
+$CHECKBOX_MOV.Location           = $System_Drawing_Point
+$CHECKBOX_MOV.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_MOV.Name               = "checkBox27"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_MOV)
+
+# CHECKBOX_MPG
+$CHECKBOX_MPG.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_MPG.Size               = $System_Drawing_Size
+$CHECKBOX_MPG.TabIndex           = 1
+$CHECKBOX_MPG.Text               = ".mpg"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 550
+$CHECKBOX_MPG.Location           = $System_Drawing_Point
+$CHECKBOX_MPG.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_MPG.Name               = "checkBox28"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_MPG)
+
+
+# CHECKBOX_XML
+$CHECKBOX_XML.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_XML.Size               = $System_Drawing_Size
+$CHECKBOX_XML.TabIndex           = 1
+$CHECKBOX_XML.Text               = ".xml"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 570
+$CHECKBOX_XML.Location           = $System_Drawing_Point
+$CHECKBOX_XML.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_XML.Name               = "checkBox28"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_XML)
+
+
+# CHECKBOX_FLA
+$CHECKBOX_FLA.UseVisualStyleBackColor = $True
+$System_Drawing_Size             = New-Object System.Drawing.Size
+$System_Drawing_Size.Width       = 104
+$System_Drawing_Size.Height      = 24
+$CHECKBOX_FLA.Size               = $System_Drawing_Size
+$CHECKBOX_FLA.TabIndex           = 1
+$CHECKBOX_FLA.Text               = ".fla"
+$System_Drawing_Point            = New-Object System.Drawing.Point
+$System_Drawing_Point.X          = 10
+$System_Drawing_Point.Y          = 590
+$CHECKBOX_FLA.Location           = $System_Drawing_Point
+$CHECKBOX_FLA.DataBindings.DefaultDataSourceUpdateMode = 0
+$CHECKBOX_FLA.Name               = "checkBox29"
+$CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_FLA)
+
+# add the checkbox to the array that we created earlier
+$Script:GUIFormObjectList += $CHECKBOX_FLA
 
 
 # add button that can reset the state of all checkboxes on extensions tab
