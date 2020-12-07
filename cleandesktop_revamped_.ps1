@@ -62,7 +62,6 @@ $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Text = "github.com/raitnigol"
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.AutoSize = $true
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Width = 25
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Height = 10
-$CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Anchor = "right,bottom"
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Font = "Verdana, 10"
 $CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL)
 
@@ -234,6 +233,17 @@ $DESKTOPITEMCOUNT.Padding        = 10
 $CLEANDESKTOP_MAIN_PAGE.Controls.Add($DESKTOPITEMCOUNT)
 
 
+# add a progress bar
+$MAIN_PAGE_PROGRESSBAR = New-Object System.Windows.Forms.ProgressBar
+$MAIN_PAGE_PROGRESSBAR.AutoSize = $true
+$MAIN_PAGE_PROGRESSBAR.Name = "PowerShellProgressBar"
+$MAIN_PAGE_PROGRESSBAR.Value = 0
+$MAIN_PAGE_PROGRESSBAR.Visible = $false
+$MAIN_PAGE_PROGRESSBAR.Anchor = "left,right, top"
+$MAIN_PAGE_PROGRESSBAR.Style="Continuous"
+$CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($MAIN_PAGE_PROGRESSBAR)
+$CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.SetColumnSpan($MAIN_PAGE_PROGRESSBAR, 2)
+
 # execute required scripts and apply logic (functions) here
 
 
@@ -295,16 +305,38 @@ function Show-TextBox-DesktopLocation {
 
 function Move-DesktopFiles {
     # function to move the files to the selected folder
+
+    # set progressbar to visible
+    $MAIN_PAGE_PROGRESSBAR.Visible = $true
+
+    # get sum of total files on the desktop
+    $TotalFiles = Get-DesktopItemCount
+
     $DesktopLocation = Get-DesktopLocation
     $DestinationPath = $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Text
-    Write-Host "moving to $DestinationPath"
+
+    $Result = Get-ChildItem -Path $DesktopLocation -File
+    Write-Host $Result
+    # set counter to 0
+	$Counter = 0
+
     Get-ChildItem -Path $DesktopLocation -File |
     ForEach-Object {
-        
         # get full name of the files (path+filename) and then move the files
-        #Move-Item -Path $_.FullName -Destination $DestinationPath
+        Move-Item -Path $_.FullName -Destination $DestinationPath
     }
 
+	ForEach ($File In $Result) {
+		# calculate the percentage
+		$Counter++
+		[Int]$Percentage = ($Counter/$Result.Count)*100
+		$MAIN_PAGE_PROGRESSBAR.Value = $Percentage
+		Start-Sleep -Milliseconds 50
+        # get full name of the files (path+filename) and then move the files
+	}
+
+    # finally update the desktop item count
+    Update-DesktopItemCount
 }
 
 
