@@ -100,6 +100,7 @@ $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Text = "Move Files"
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Width = 20
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Height = 20
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Anchor = 'left,right,bottom'
+$CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Enabled = $false
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Font = New-Object System.Drawing.Font("Microsoft Sans Serif",10)
 $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.TextAlign = "BottomCenter"
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON)
@@ -114,6 +115,7 @@ $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.AutoSize = $true
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.ReadOnly = $true
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Anchor = "left,right,top"
 $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.TextAlign = "Left"
+$CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Text = $null
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_TEXTBOX)
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.SetColumnSpan($CLEANDESKTOP_MAIN_PAGE_TEXTBOX, 2)
 
@@ -284,7 +286,12 @@ function Show-TextBox-DesktopLocation {
         # set the textbox text to the selected path
         $CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Text = $DestinationFolder
     }
+
+    if (![string]::IsNullOrEmpty($CLEANDESKTOP_MAIN_PAGE_TEXTBOX.Text)) {
+        $CLEANDESKTOP_MAIN_PAGE_MOVE_BUTTON.Enabled = $true
+    }
 }
+
 
 function Move-DesktopFiles {
     # function to move the files to the selected folder
@@ -293,8 +300,9 @@ function Move-DesktopFiles {
     Write-Host "moving to $DestinationPath"
     Get-ChildItem -Path $DesktopLocation -File |
     ForEach-Object {
+        
         # get full name of the files (path+filename) and then move the files
-        Move-Item -Path $_.FullName -Destination $DestinationPath
+        #Move-Item -Path $_.FullName -Destination $DestinationPath
     }
 
 }
