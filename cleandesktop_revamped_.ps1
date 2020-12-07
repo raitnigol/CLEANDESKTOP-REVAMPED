@@ -5,19 +5,23 @@
 #>
 
 
-# first of all, get the desktop location of currently signed in users and count the files on the desktop
+# get the current script directory to import the module DesktopLocation.psm1
 $ScriptDirectory = $PSScriptRoot
 Import-Module $ScriptDirectory\DesktopLocation.psm1
+
 
 # to make the gui autoscale, we need to get users display resolution
 $ClientSize                      = [System.Windows.Forms.SystemInformation]::VirtualScreen
 $ClientWidth                     = $ClientSize.Width
 $ClientHeight                    = $ClientSize.Height
 
+
 # make an array that can hold checkbox objects so we do not need to hardcode
-# when reseting the valus
+# when reseting the values with a single button click 
 $Script:GUIFormObjectList = @()
 
+
+# add the form controls
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
 
@@ -49,12 +53,15 @@ $System_Drawing_Size.Height      = "$($ClientHeight / 1.5)"
 $TabControl.Size                 = $System_Drawing_Size
 $TabControl.Anchor               = "left, right, top, bottom"
 
+
 # add main page to the gui
 $CLEANDESKTOP_MAIN_PAGE          = New-Object System.Windows.Forms.TabPage
 $CLEANDESKTOP_MAIN_PAGE.DataBindings.DefaultDataSourceUpdateMode = 0
 $CLEANDESKTOP_MAIN_PAGE.UseVisualStyleBackColor = $true
 $CLEANDESKTOP_MAIN_PAGE.Text     = "Main Page"
+
 $TabControl.Controls.Add($CLEANDESKTOP_MAIN_PAGE)
+
 
 # add a label with my github to the main tab of the gui
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL = New-Object System.Windows.Forms.Label
@@ -63,7 +70,9 @@ $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.AutoSize = $true
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Width = 25
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Height = 10
 $CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL.Font = "Verdana, 10"
+
 $CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_GITHUB_LABEL)
+
 
 # add two buttons to the main page, one that moves the files and one that lets you choose the location
 # of the folder where to copy the files
@@ -75,7 +84,9 @@ $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.RowCount = 2
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.ColumnCount = 2
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.BackColor = "White"
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Anchor = "none"
+
 $CLEANDESKTOP_MAIN_PAGE.Controls.Add($CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL)
+
 
 # button for selecting the desktop path
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON = New-Object System.Windows.Forms.Button
@@ -86,9 +97,10 @@ $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Height  = 20
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Anchor = "left,right,bottom"
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Font = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.TextAlign = "BottomCenter"
+
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON)
 
-# add controls for the button
+# add a function to the button
 $CLEANDESKTOP_MAIN_PAGE_BROWSE_BUTTON.Add_Click({Show-TextBox-DesktopLocation})
 
 
@@ -160,6 +172,8 @@ $DESKTOP_FILES_DATAGRIDVIEW.Columns[0].Width = 200
 $DESKTOP_FILES_DATAGRIDVIEW.AutoSizeRowsMode = "AllCells"
 
 $CLEANDESKTOP_DESKTOP_FILES.Controls.Add($DESKTOP_FILES_DATAGRIDVIEW)
+
+
 # set up tabs for extensions tab
 $CHECKBOX_PNG                    = New-Object System.Windows.Forms.CheckBox
 $CHECKBOX_JPG                    = New-Object System.Windows.Forms.CheckBox
@@ -180,7 +194,10 @@ $System_Drawing_Point.Y          = 50
 $CHECKBOX_PNG.Location           = $System_Drawing_Point
 $CHECKBOX_PNG.DataBindings.DefaultDataSourceUpdateMode = 0
 $CHECKBOX_PNG.Name               = "checkBox2"
+
 $CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_PNG)
+
+# add the checkbox to the array that we created earlier
 $Script:GUIFormObjectList += $CHECKBOX_PNG
 
 
@@ -199,6 +216,8 @@ $CHECKBOX_JPG.Location           = $System_Drawing_Point
 $CHECKBOX_JPG.DataBindings.DefaultDataSourceUpdateMode = 0
 $CHECKBOX_JPG.Name               = "checkBox2"
 $CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CHECKBOX_JPG)
+
+# add the checkbox to the array that we created earlier
 $Script:GUIFormObjectList += $CHECKBOX_JPG
 
 
@@ -211,7 +230,8 @@ $CLEAR_EXTENSIONS_BUTTON.height  = 10
 $CLEAR_EXTENSIONS_BUTTON.Anchor  = 'top,bottom'
 $CLEAR_EXTENSIONS_BUTTON.Dock    = "Bottom"
 $CLEAR_EXTENSIONS_BUTTON.Font = New-Object System.Drawing.Font('Microsoft Sans Serif',10)
-$CLEAR_EXTENSIONS_BUTTON.TextAlign = "BottomCenter"  
+$CLEAR_EXTENSIONS_BUTTON.TextAlign = "BottomCenter"
+
 $CLEANDESKTOP_EXTENSIONS_PAGE.Controls.Add($CLEAR_EXTENSIONS_BUTTON)
 
 # add logic to the button
@@ -229,7 +249,7 @@ $DESKTOPITEMCOUNT.Visible        = $false
 $DESKTOPITEMCOUNT.TextAlign      = "BottomCenter"
 $DESKTOPITEMCOUNT.Dock           = "Fill"
 $DESKTOPITEMCOUNT.Padding        = 10
-# add the label to the main page
+
 $CLEANDESKTOP_MAIN_PAGE.Controls.Add($DESKTOPITEMCOUNT)
 
 
@@ -244,8 +264,8 @@ $MAIN_PAGE_PROGRESSBAR.Style="Continuous"
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.Controls.Add($MAIN_PAGE_PROGRESSBAR)
 $CLEANDESKTOP_MAIN_PAGE_TABLE_LAYOUT_PANEL.SetColumnSpan($MAIN_PAGE_PROGRESSBAR, 2)
 
-# execute required scripts and apply logic (functions) here
 
+# execute required scripts and apply logic (functions) here
 
 # get desktop item count and display it in the textbox
 # make it as a service, running every 30 seconds
@@ -258,6 +278,8 @@ function Update-DesktopItemCount {
     $DESKTOPITEMCOUNT.Text        = "There are currently $DesktopItemsCount files on the desktop | Desktop path: $DesktopLocation"
     $DESKTOPITEMCOUNT.Visible     = $true
 }
+
+# update the desktop item count on form creation
 Update-DesktopItemCount
 
 
